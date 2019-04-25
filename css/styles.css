@@ -88,6 +88,7 @@ nav h1 a {
   font-weight: 200;
   letter-spacing: 10px;
   text-transform: uppercase;
+  padding-top: 30px;
 }
 
 #breadcrumb {
@@ -189,7 +190,7 @@ nav h1 a {
 #restaurants-list .restaurant-img {
   background-color: #ccc;
   display: block;
-  margin: 0;
+  margin: 10px 0 0 0;
   max-width: 100%;
   min-height: 248px;
   min-width: 100%;

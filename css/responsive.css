@@ -61,18 +61,30 @@
   #restaurant-img, #restaurant-cuisine {
     width: 100%;
   }
+
+  nav {
+    height: 60px;
+  }
+
+  nav h1 a {
+    font-size: 11pt;
+    font-weight: 150;
+    letter-spacing: 5px;
+    padding-top: 10px;
+  }
+  
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 740px) {
   #restaurants-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
   }
   ul#restaurants-list li {
-    margin: 15px 10px;
-    max-width: 390px;
-    width: 40%;
+    margin: 30px 20px;
+    max-width: 460px;
+    width: 42%;
   }
   .filter-options {
     display: flex;
