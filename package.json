@@ -1,0 +1,11 @@
+{
+  "name": "restaurant",
+  "version": "1.0.0",
+  "description": "A restaurant reviewer app",
+  "devDependencies": {
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-responsive": "^2.11.0",
+    "run-sequence": "^2.2.1"
+  }
+}

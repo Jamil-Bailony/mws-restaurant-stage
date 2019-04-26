@@ -150,8 +150,30 @@ class DBHelper {
    * Restaurant image URL.
    */
   static imageUrlForRestaurant(restaurant) {
-    return (`/img/${restaurant.photograph}`);
+    return (`/img/${(restaurant.photograph.split('.')[0]||restaurant.id)}-medium-600w.jpeg`);
   }
+
+  /**
+   * Restaurant srcset attribute for browser to decide best resolution. It uses restaurant.photograph
+   * and fallbacks to restaurant.id if former is missing.
+   */
+  static imageSrcsetForRestaurant(restaurant) {
+    const imageSrc = `/img/${(restaurant.photograph.split('.')[0]||restaurant.id)}`;
+    return `${imageSrc}-small-300w.jpeg 300w,
+            ${imageSrc}-medium-600w.jpeg 600w,
+            ${imageSrc}-large-800w.jpeg 800w`;
+  }
+
+  /**
+   * Restaurant sizes attribute so browser knows image sizes before deciding
+   * what image to download.
+   */
+  static imageSizesForRestaurant(restaurant) {
+    return `(max-width: 499px) 280px,
+            (max-width: 739px) 600px,
+            800px`;
+  }
+
 
   /**
    * Map marker for a restaurant.
