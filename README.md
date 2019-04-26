@@ -1,33 +1,43 @@
-# Mobile Web Specialist Certification Course
----
-#### _Three Stage Course Material Project - Restaurant Reviews_
+# MWS Restaurant Stage
+This is my final project at Udacity. In this project, I was given a web-based application that help others find the nearest restaurant to where they live and provide others review. My job in this project is to incrementally convert a static webpage to a mobile-ready web application and take a static design that lacks accessibility and convert the design to be responsive on different sized displays and accessible for screen reader use. I have also to add a service worker to begin the process of creating a seamless offline experience for your users. 
 
-## Project Overview: Stage 1
 
-For the **Restaurant Reviews** projects, you will incrementally convert a static webpage to a mobile-ready web application. In **Stage One**, you will take a static design that lacks accessibility and convert the design to be responsive on different sized displays and accessible for screen reader use. You will also add a service worker to begin the process of creating a seamless offline experience for your users.
+## Table of Contents
 
-### Specification
+* [Installation](#installation)
+* [Usage](#usage)
+* [Dependencies](#dependencies)
+* [License](#License)
 
-You have been provided the code for a restaurant reviews website. The code has a lot of issues. It’s barely usable on a desktop browser, much less a mobile device. It also doesn’t include any standard accessibility features, and it doesn’t work offline at all. Your job is to update the code to resolve these issues while still maintaining the included functionality.
+## Installation
 
-### Project Rubric
+Clone this project to your computer using ```git clone``` command:
 
-Your project will be evaluated by a Udacity code reviewer according to the [Restaurant Reviews project rubric](https://review.udacity.com/#!/rubrics/1090/view). Please review for detailed project requirements. The rubric should be a resource you refer to periodically to make sure your project meets specifications.
+```bash
+https://github.com/Jamil-Bailony/mws-restaurant-stage.git
+```
+or download it as a zip file to your computer from the repository.
 
-### What do I do from here?
+## Usage
 
-1. In this folder, start up a simple HTTP server to serve up the site files on your local computer. Python has some simple tools to do this, and you don't even need to know Python. For most people, it's already installed on your computer.
+In order to view or use this project, you have to start up a simple HTTP server to serve up the site files on your local computer. Python has some simple tools to do this, and you don’t even need to know Python. For most cases, it’s already installed on your computer. 
 
-    * In a terminal, check the version of Python you have: `python -V`. If you have Python 2.x, spin up the server with `python -m SimpleHTTPServer 8000` (or some other port, if port 8000 is already in use.) For Python 3.x, you can use `python3 -m http.server 8000`. If you don't have Python installed, navigate to Python's [website](https://www.python.org/) to download and install the software.
-   * Note -  For Windows systems, Python 3.x is installed as `python` by default. To start a Python 3.x server, you can simply enter `python -m http.server 8000`.
-2. With your server running, visit the site: `http://localhost:8000`, and look around for a bit to see what the current experience looks like.
-3. Explore the provided code, and start making a plan to implement the required features in three areas: responsive design, accessibility and offline use.
-4. Write code to implement the updates to get this site on its way to being a mobile-ready website.
+* In a terminal, check the version of Python you have: `python -V`. If you have Python 2.x, spin up the server with `python -m SimpleHTTPServer 8000` (or some other port, if port 8000 is already in use.) For Python 3.x, you can use `python3 -m http.server 8000`. If you don’t have Python installed, navigate to Python’s website to download and install the software.
 
-## Leaflet.js and Mapbox:
+* **Note** - For Windows systems, Python 3.x is installed as python by default. To start a Python 3.x server, you can simply enter `python -m http.server 8000`.
 
-This repository uses [leafletjs](https://leafletjs.com/) with [Mapbox](https://www.mapbox.com/). You need to replace `<your MAPBOX API KEY HERE>` with a token from [Mapbox](https://www.mapbox.com/). Mapbox is free to use, and does not require any payment information.
+## Dependencies
 
-### Note about ES6
+You should enable JavaScript in your browser to be able to use this project. If you want to use build tools, you have to install [Node.js](https://nodejs.org/en/download/) first. Then, install [gulp@3.9.1](https://gulpjs.com/) (refer to [this](https://libraries.io/npm/gulp/3.9.1) article). After that, you have to install the packages in the package.json file then you will be able to use the build tools. Python also needed to start up an http server to serve up the site files.
 
-Most of the code in this project has been written to the ES6 JavaScript specification for compatibility with modern web browsers and future-proofing JavaScript code. As much as possible, try to maintain use of ES6 in any additional JavaScript you write.
+```bash
+# install packages
+npm install
+
+# run the default task to use build tools
+gulp
+```
+
+## License
+
+This project is licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
