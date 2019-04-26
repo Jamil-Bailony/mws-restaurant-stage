@@ -21,21 +21,21 @@
   </header>
 
   <main id="maincontent">
-    <section id="map-container">
-      <div id="map"></div>
-    </section>
-    <section>
+    <section id="map-container" role="aplication" aria-label="Mapbox Map">
+      <div id="map" aria-labelledby="map-container"></div>
+    </section>s
+    <section role="contentinfo" aria-label="Restaurant found in your area">
       <div id="filter-options" class="filter-options">
         <h2>Filter Results</h2>
-        <select tabindex="1" role="tablist" id="neighborhoods-select" name="neighborhoods"
+        <select tabindex="1" role="tablist" aria-controls="restaurants-list" aria-label="Filter by neighborhoods" id="neighborhoods-select" name="neighborhoods"
           onchange="updateRestaurants()">
           <option value="all">All Neighborhoods</option>
         </select>
-        <select tabindex="1" role="tablist" id="cuisines-select" name="cuisines" onchange="updateRestaurants()">
+        <select tabindex="1" role="tablist" aria-controls="restaurants-list" aria-label="filter by cuisines" id="cuisines-select" name="cuisines" onchange="updateRestaurants()">
           <option value="all">All Cuisines</option>
         </select>
       </div>
-      <ul id="restaurants-list" role="list" aria-label="list of restaurants"></ul>
+      <ul id="restaurants-list" role="region" aria-live="polite" aria-atomic="true" aria-label="list of restaurants found"></ul>
     </section>
   </main>
   <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"
