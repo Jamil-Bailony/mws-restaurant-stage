@@ -4,7 +4,7 @@ var newMap;
 /**
  * Initialize map as soon as the page is loaded.
  */
-document.addEventListener('DOMContentLoaded', (event) => {  
+document.addEventListener('DOMContentLoaded', (event) => {
   initMap();
 });
 
@@ -15,26 +15,41 @@ initMap = () => {
   fetchRestaurantFromURL((error, restaurant) => {
     if (error) { // Got an error!
       console.error(error);
-    } else {      
-      self.newMap = L.map('map', {
-        center: [restaurant.latlng.lat, restaurant.latlng.lng],
-        zoom: 16,
-        scrollWheelZoom: false
-      });
-      L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.jpg70?access_token={mapboxToken}', {
-        mapboxToken: 'pk.eyJ1IjoiamJhaWxvbnkiLCJhIjoiY2p1d2N3cXd1MGE0dDQ0cXIwM2hya2c3ZSJ9.8wWhEQjDgfCe_0HTNvjKDA',
-        maxZoom: 18,
-        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-          '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-          'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-        id: 'mapbox.streets'    
-      }).addTo(newMap);
+    } else {
+      if (navigator.onLine) {
+        try {
+          self.newMap = L.map('map', {
+            center: [restaurant.latlng.lat, restaurant.latlng.lng],
+            zoom: 16,
+            scrollWheelZoom: false
+          });
+          L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.jpg70?access_token={mapboxToken}', {
+            mapboxToken: 'pk.eyJ1IjoiamJhaWxvbnkiLCJhIjoiY2p1d2N3cXd1MGE0dDQ0cXIwM2hya2c3ZSJ9.8wWhEQjDgfCe_0HTNvjKDA',
+            maxZoom: 18,
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+              '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+              'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            id: 'mapbox.streets'
+          }).addTo(newMap);
+          DBHelper.mapMarkerForRestaurant(self.restaurant, self.newMap);
+
+        } catch (err) {
+          console.log("Map couldn't be initialized", err);
+          // If an error occurred while trying to initialize the map, set map as offline
+          DBHelper.mapOffline();
+
+        }
+      } else {
+        // If an error occurred while trying to initialize the map, set map as offline
+        DBHelper.mapOffline();
+
+      }
+
       fillBreadcrumb();
-      DBHelper.mapMarkerForRestaurant(self.restaurant, self.newMap);
     }
   });
-}  
- 
+}
+
 /* window.initMap = () => {
   fetchRestaurantFromURL((error, restaurant) => {
     if (error) { // Got an error!
@@ -174,7 +189,7 @@ createReviewHTML = (review) => {
 /**
  * Add restaurant name to the breadcrumb navigation menu
  */
-fillBreadcrumb = (restaurant=self.restaurant) => {
+fillBreadcrumb = (restaurant = self.restaurant) => {
   const breadcrumb = document.getElementById('breadcrumb');
   const li = document.createElement('li');
   li.innerHTML = restaurant.name;
