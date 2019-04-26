@@ -36,9 +36,17 @@ a {
   text-decoration: none;
 }
 
-a:hover, a:focus {
-  color: #3397db;
-  text-decoration: none;
+button:hover, button:focus, a:hover, a:focus {
+  outline: none;
+  color: rgb(209, 156, 156);
+  font-weight: 500;
+  text-decoration: underline;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+}
+
+select:focus {
+  outline: 1px solid rgba(238, 67, 67, 0.418);
+  box-shadow: 0 2px 2px 2px rgba(238, 67, 67, 0.226), 0 2px 1px -2px rgba(238, 67, 67, 0.253), 0 1px 2px 5px rgba(238, 67, 67, 0.24);
 }
 
 a img {
@@ -126,6 +134,21 @@ nav h1 a {
 #breadcrumb li a:hover {
   color: #01447e;
   text-decoration: underline;
+}
+
+/* Add a style to skip link */
+
+.skip-link {
+  display: block;
+  position: absolute;
+  top: 15px;
+  left: -1000px;
+  background-color: white;
+  padding: 5px 10px;
+}
+
+.skip-link:focus {
+  left: 15px;
 }
 
 /* ====================== Map ====================== */
@@ -223,6 +246,14 @@ nav h1 a {
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
+}
+
+#restaurants-list li a:hover, #restaurants-list li a:focus {
+  outline: none;
+  background: #C2185B;
+  color: #FFFFFF;
+  text-decoration: none;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
 }
 
 /* ====================== Restaurant Details ====================== */
